@@ -1,18 +1,19 @@
-import { OpenAI } from 'langchain/llms/openai'
+import { OpenAI } from '@langchain/openai'
 import { StructuredOutputParser } from 'langchain/output_parsers'
 import z from 'zod'
-import { PromptTemplate } from 'langchain/prompts'
+import { PromptTemplate } from '@langchain/core/prompts'
 
 const parser = StructuredOutputParser.fromZodSchema(
     z.object({
         mood: z.string().describe('the mood of the person who wrote the juornal entry'),
         summary: z.string().describe('quick summary of the entry'),
-        subject: z.boolean().describe('is the journal entry negative ? (i.e does it contain negative emotions?)'),
-        color: z.string().describe('a hexidecimal color code that represents the mood of the entry.Example #0101fe for blue representing happiness')
+        negative: z.boolean().describe('is the journal entry negative ? (i.e does it contain negative emotions?)'),
+        color: z.string().describe('a hexidecimal color code that represents the mood of the entry.Example #0101fe for blue representing happiness'),
+        subject: z.string().describe('the subject of the journal entry')
     })
 )
 
-const getPrompt = async (content) => {
+const getPrompt = async (content: string) => {
     const format_instructions = parser.getFormatInstructions()
 
     const prompt = new PromptTemplate({
@@ -25,6 +26,8 @@ const getPrompt = async (content) => {
     const input = await prompt.format({
         entry: content
     })
+
+    return input
 }
 
 
@@ -33,6 +36,10 @@ export const analyze = async (content: any) => {
     const input = await getPrompt(content)
     const model = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo' })
     const result = await model.invoke(input)
-    console.log(result);
 
+    try {
+        return parser.parse(result)
+    } catch (e) {
+        console.log(e)
+    }
 }
