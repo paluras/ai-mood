@@ -9,6 +9,7 @@ interface DashboarLayoutProps {
 const links = [
     { href: "/", value: "Home" },
     { href: "/journal", value: "Journal" },
+    { href: "/history", value: "History" }
 
 ]
 

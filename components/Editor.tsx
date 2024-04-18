@@ -44,10 +44,10 @@ const Editor = ({ entry }: EntryType) => {
         }
     })
     return (
-        <div className="grid grid-cols-2">
+        <div className="grid h-full grid-cols-2">
             <div className="w-full h-full">
                 {loading && <div>Thinking</div>}
-                <textarea className="w-full h-full p-8 text-xl" value={value} onChange={e => { setValue(e.target.value) }}></textarea>
+                <textarea className="w-full overflow-hidden h-full p-8 text-xl focus-visible:outline-0" value={value} onChange={e => { setValue(e.target.value) }}></textarea>
             </div>
             <div className="border-l border-black/10">
                 <div className=" py-10 px-6" style={{ backgroundColor: analysis?.color }}>
