@@ -3,7 +3,6 @@ import DeleteButton from "./DeleteButton"
 
 
 const EntryCard = ({ entry }: EntryType) => {
-  console.log(entry.id);
 
   const date = new Date(entry.createdAt).toDateString()
   const smallEntry = entry.content.slice(0, 100) + "..."

@@ -19,7 +19,6 @@ interface EntryType {
 
 }
 const Editor = ({ entry }: EntryType) => {
-    console.log(entry, "Log");
 
     const [value, setValue] = useState(entry.content)
     const [loading, setLoading] = useState(false)

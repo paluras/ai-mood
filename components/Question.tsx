@@ -18,7 +18,6 @@ const Question = () => {
         setLoading(true)
         const answer = await askQuestion(value)
         setRes(answer)
-        console.log(res);
 
         setValue('')
         setLoading(false)
