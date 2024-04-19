@@ -3,7 +3,7 @@ import { getUserByClerkID } from "@/utils/auth"
 import { prisma } from "@/utils/db"
 import { NextResponse } from "next/server"
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
 
     const { question } = await req.json()
     const user = await getUserByClerkID()
