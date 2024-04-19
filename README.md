@@ -1,6 +1,7 @@
 # AI Mood Tracker Journal
 
-AI Mood Tracker Journal is a Next.js application designed to help users track their daily moods using AI technology. By leveraging LangChain for AI-powered mood analysis and Neon DB with Prisma for efficient data handling, this app offers a unique approach to understanding emotional trends over time. Authentication is managed securely via Clerk.
+AI Mood Tracker Journal is a Next.js application built with React 18, utilizing both new Server Components and Server Actions to optimize performance and user experience. This app helps users track their daily moods using AI technology, provided by LangChain, and visualize emotional trends over time. Authentication is managed securely via Clerk, and data is efficiently handled using Neon DB with Prisma ORM.
+
 
 ## Features
 
