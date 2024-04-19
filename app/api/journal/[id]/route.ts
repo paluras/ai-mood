@@ -2,9 +2,11 @@ import { analyze } from "@/utils/ai"
 import { getUserByClerkID } from "@/utils/auth"
 import { prisma } from "@/utils/db"
 import { revalidatePath } from "next/cache"
-import { NextResponse } from "next/server"
+import { NextResponse, NextRequest } from "next/server"
 
-export const PATCH = async (req: Request, { params }: any) => {
+export const revalidate = 0
+
+export const PUT = async (req: Request, { params }: any) => {
     const { content } = await req.json()
     const user = await getUserByClerkID()
     const updatedEntry = await prisma.jurnalEntry.update({
@@ -38,17 +40,18 @@ export const PATCH = async (req: Request, { params }: any) => {
     return NextResponse.json({ data: { ...updatedEntry, analysis: update } })
 }
 
-export const DELETE = async (request: Request, { params }) => {
+export const DELETE = async (request: NextRequest, { params }: any) => {
     const user = await getUserByClerkID()
 
-    await prisma.jurnalEntry.delete({
-        where: {
-            userId_id: {
-                id: params.id,
-                userId: user.id,
+    await prisma.jurnalEntry
+        .delete({
+            where: {
+                userId_id: {
+                    id: params.id,
+                    userId: user.id,
+                },
             },
-        },
-    })
+        })
 
     return NextResponse.json({ data: { id: params.id } })
 }

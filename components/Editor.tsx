@@ -38,8 +38,11 @@ const Editor = ({ entry }: EntryType) => {
     useAutosave({
         data: value,
         onSave: async (_value) => {
+            if (_value === entry.content) return
             setLoading(true)
+
             const updated = await updateEntry(entry.id, _value)
+            if (!updated) return
             setAnalysis(updated.analysis)
             setLoading(false)
         }

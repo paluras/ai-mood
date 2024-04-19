@@ -1,10 +1,11 @@
 
-import DeleteButton from '@/components/DeleteButton'
+import { revalidate } from '@/app/api/journal/route'
 import EntryCard from '@/components/EntryCard'
 import NewEntryCard from '@/components/NewEntryCard'
 import Question from '@/components/Question'
 import { getUserByClerkID } from '@/utils/auth'
 import { prisma } from '@/utils/db'
+import { revalidatePath } from 'next/cache'
 import Link from 'next/link'
 
 const getEntries = async () => {
@@ -17,6 +18,7 @@ const getEntries = async () => {
             createdAt: 'desc'
         }
     })
+    revalidate
     return entries
 }
 

@@ -33,6 +33,7 @@ export const deleteEntry = async (id: any) => {
 
     }))
 
+
     if (res.ok) {
 
         return res.json()

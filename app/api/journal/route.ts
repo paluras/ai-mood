@@ -4,6 +4,9 @@ import { prisma } from "@/utils/db"
 import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 
+
+export const revalidate = 10
+
 export const POST = async () => {
 
     const user = getUserByClerkID()
@@ -25,7 +28,6 @@ export const POST = async () => {
             ...analysis
         }
     })
-
     revalidatePath('/journal')
 
     return NextResponse.json({ data: entry })
