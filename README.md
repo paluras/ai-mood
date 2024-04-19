@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Mood Tracker Journal
+
+AI Mood Tracker Journal is a Next.js application designed to help users track their daily moods using AI technology. By leveraging LangChain for AI-powered mood analysis and Neon DB with Prisma for efficient data handling, this app offers a unique approach to understanding emotional trends over time. Authentication is managed securely via Clerk.
+
+## Features
+
+- **Mood Logging:** Users can log their mood along with a brief journal entry.
+- **AI Mood Analysis:** Utilizes LangChain to analyze journal entries and assess the user's mood.
+- **Mood Visualization:** Graphs and charts to visualize mood trends over time.
+- **Secure Authentication:** Uses Clerk for user authentication and session management.
+- **Data Management:** Prisma ORM with Neon DB for robust and scalable data storage.
+
+## Technologies Used
+
+- **[Next.js](https://nextjs.org/)** - The React framework for production.
+- **[LangChain](https://langchain.com/)** - AI integration for natural language processing.
+- **[Neon](https://www.neon.tech/)** - PostgreSQL-compatible database as a service.
+- **[Prisma](https://www.prisma.io/)** - Next-generation ORM for Node.js and TypeScript.
+- **[Clerk](https://clerk.dev/)** - Complete authentication solution.
+- **[Zod](https://github.com/colinhacks/zod)** - TypeScript-first schema validation with static type inference.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- Node.js 14.x or later
+- npm/yarn
+- A Neon DB account
+- Clerk account for authentication
+
+### Installation
+
+1. **Clone the repository**
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Usage
+After logging in, users can start logging their daily journal entries. The AI system will analyze the text to determine the mood and provide visual feedback in the form of graphs and charts based on the mood scores over time.
