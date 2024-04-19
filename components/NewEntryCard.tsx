@@ -13,10 +13,9 @@ const NewEntryCard = () => {
 
   return (
     <div
-      className="cursor-pointer hover:scale-x-105 transition overflow-hidden rounded-lg bg-blue-200 shadow text-3xl p-2 "
+      className="cursor-pointer hover:scale-x-105 transition overflow-hidden rounded-lg bg-blue-200 shadow text-2xl p-2 "
       onClick={handleClick} >
       New Entry
-
       <div >
       </div>
     </div>

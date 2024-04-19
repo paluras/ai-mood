@@ -1,3 +1,5 @@
+import { revalidatePath } from "next/cache"
+
 export const createNewEntry = async () => {
     const res = await fetch(new Request(createURL('/api/journal'), {
         method: "POST",
@@ -25,8 +27,23 @@ export const updateEntry = async (id: string, content: string) => {
     }
 }
 
+export const deleteEntry = async (id: any) => {
+    const res = await fetch(new Request(createURL(`/api/journal/${id}`), {
+        method: 'DELETE',
 
-export const askQuestion = async (question) => {
+    }))
+
+    if (res.ok) {
+
+        return res.json()
+    } else {
+        throw new Error('Something went wrong on API server!')
+    }
+
+}
+
+
+export const askQuestion = async (question: string) => {
     const res = await fetch(new Request(createURL('/api/question'), {
         method: "POST",
         body: JSON.stringify({ question })

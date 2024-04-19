@@ -46,7 +46,7 @@ model Analysis {
   updatedAt DateTime @updatedAt
 
   entryId String
-  entry   JurnalEntry @relation(fields: [entryId], references: [id])
+  entry   JurnalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)

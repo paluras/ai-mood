@@ -3,6 +3,7 @@
 import { updateEntry } from "@/utils/api"
 import { useState } from "react"
 import { useAutosave } from "react-autosave"
+import DeleteButton from "./DeleteButton"
 
 
 interface EntryType {
@@ -54,6 +55,8 @@ const Editor = ({ entry }: EntryType) => {
                     <h2 className="text-3xl">Ai stuff</h2>
 
                 </div>
+                <DeleteButton id={entry.id} />
+
                 <ul>
                     {analysisData.map((item, index) => (
                         <li className="flex items-center justify-between px-4 py-2 border border-black/20 font-bold" key={index}>
