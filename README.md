@@ -1,3 +1,6 @@
+![Alt text](https://github.com/paluras/ai-mood/assets/98059798/9f37fc65-c477-4a3f-8c6b-2571bd83ca08)
+
+
 # AI Mood Tracker Journal
 
 AI Mood Tracker Journal is a Next.js application built with React 18, utilizing both new Server Components and Server Actions to optimize performance and user experience. This app helps users track their daily moods using AI technology, provided by LangChain, and visualize emotional trends over time. Authentication is managed securely via Clerk, and data is efficiently handled using Neon DB with Prisma ORM.
